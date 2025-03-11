@@ -1,0 +1,381 @@
+/*  ==========================
+    CSS RESET
+    ==========================  */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/*  ==========================
+    My CSS
+    ==========================  */
+
+
+:root {
+  --clr-red-background:rgb(242, 15, 16);
+  --clr-yellow-heading:rgb(223, 230, 40);
+  --clr-grey-button:rgb(230, 230, 230);
+  --clr-black-button:rgb(44, 44, 44);
+  --clr-grey-button-active:rgb(88, 88, 88);
+  --clr-green-background:rgb(31, 122, 39);
+  --clr-black-background:rgb(35, 35, 35);
+  --clr-white-text:rgb(255, 255, 250);
+  --clr-yellow-input:rgb(221, 234, 33);
+  --clr-green-text:rgb(30, 124, 33);
+
+  --ff-roboto: 'Roboto', sans-serif;
+}
+
+body{
+  background-color: var(--clr-red-background);
+  font-family: var(--ff-roboto);
+}
+
+.content-wrapper{
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin: 2rem auto;
+}
+
+.hero{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.slogan{
+  color: var(--clr-yellow-heading);
+  font-size: 1.5rem;
+}
+
+.order-btn {
+  background-color: var(--clr-black-button);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.7rem;
+  color: var(--clr-white-text);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.navigation{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  font-weight: 700;
+}
+
+a:link{
+  text-decoration: none;
+}
+
+.navigation-btn {
+ background-color: var(--clr-grey-button);
+ padding: 0.8rem 2rem;
+ border-radius: 0.7rem;
+ margin: 1rem auto;
+ cursor: pointer;
+}
+
+/*  ==========================
+    Home Page
+    ==========================  */
+
+main{
+  background-color: var(--clr-black-background);
+}
+
+.services-text {
+  display: flex;
+  justify-content: center;
+  color: var(--clr-yellow-heading);
+  font-weight: 700;
+  font-size: 1.5rem;
+  background-color: var(--clr-green-background);
+  margin:0;
+  padding: 1rem 0;
+}
+
+.services-text li:not(:last-child)::after {
+  content: "|";
+  margin: 0 1rem;
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  gap:0; /* i am unable to get rid of the small space between the photos */
+}
+
+.hero img {
+  margin: 0; /* i am unable to get rid of the small space between the photos */
+}
+
+.hero__btn {
+  position: absolute;
+  bottom: 2rem;
+  border:none;
+  padding: 1rem 8rem;
+  border-radius: 100vw;
+  background-color: var(--clr-red-background);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.promo__special {
+  grid-area: special;
+  display: grid;
+  place-items: center;
+  gap:1rem;
+}
+
+.promo__pop {
+  grid-area: pop;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  
+
+}
+
+.promo__cta {
+  grid-area: cta;
+  display: grid;
+  place-items: end;
+}
+
+.promo__grid {
+  display: grid;
+  grid-template-areas: 
+  "special pop"
+  "special cta"
+  ;
+  gap:2rem;
+  padding: 2rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+
+.promo__title {
+  color: var(--clr-yellow-heading);
+}
+
+.promo__text {
+  color:var(--clr-white-text)
+}
+
+.promo__price {
+  color:var(--clr-red-background)
+}
+
+.promo__cta{
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+button:active,.navigation-btn:active{
+  transform: scale(0.95);
+}
+
+
+
+/*  ==========================
+    Contact Page
+    ==========================  */
+
+.contact {
+  padding: 0.5rem;
+}
+
+.contact__title-wrapper >.contact__title  {
+  color: var(--clr-green-text);
+  text-align: center;
+  padding: 1rem;
+  border-bottom: 2px solid var(--clr-white-text);
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.contact__title {
+  color: var(--clr-green-text);
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.contact__text--red {
+  color: var(--clr-red-background);
+  font-weight: 500;
+  font-size: 1.8rem;
+
+}
+
+.contact__text--white {
+  color: var(--clr-white-text);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.imput-wrapper {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.contact__user-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.contact_message {
+  flex-grow: 1;
+  display: flex;
+  justify-content: end;
+
+}
+
+.message {
+  width: 100%;
+}
+
+input{
+  background-color: var(--clr-yellow-input);
+}
+
+.form-button-wrapper{
+  display: flex;
+  justify-content: end;
+  flex-direction: row;
+}
+
+.form-button{
+  border: none;
+  background-color: var(--clr-red-background);
+  color: var(--clr-white-text);
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  border-radius: 0.7rem;
+  cursor: pointer;
+}
+
+.contact__business-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  margin: 1rem 0;
+}
+
+.contact__number{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell-icon img {
+  width: 5rem;
+}
+
+.cashier {
+  display: grid;
+  place-items: center;
+}
+
+footer, .social {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem;
+  color: var(--clr-white-text);
+}
+
+footer img {
+  width: 2rem;
+  cursor: pointer;
+}
