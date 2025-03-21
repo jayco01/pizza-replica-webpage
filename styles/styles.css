@@ -145,9 +145,13 @@ a:link{
   text-decoration: none;
 }
 
+.navigation-btn a {
+  padding: 1rem 2rem;
+}
+
 .navigation-btn {
  background-color: var(--clr-grey-button);
- padding: 0.8rem 2rem;
+ padding: 0.8rem 0;
  border-radius: 0.7rem;
  margin: 1rem auto;
  cursor: pointer;
